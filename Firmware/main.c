@@ -276,7 +276,6 @@ int main(void)
 	//
 	TIMSK0 |= (1 << OCIE0A);
 	sei();
-	while (1);
 	//
 
 	main_flag.X1onoff = 1;
@@ -330,12 +329,14 @@ int main(void)
 						{
 							if (keyB.f.lock == 0)
 							{
+								/*Ahora B es T1*/
+								P1_T3 = 1000;//2seg
+								//
+								PinTo0(PORTWxOUT_2, PINxOUT_2);
+								PinTo1(PORTWxOUT_1, PINxOUT_1);
 
-							/*Ahora B es T1*/
-							P1_T3 = 1000;//2seg
-							//
-							PinTo0(PORTWxOUT_2, PINxOUT_2);
-							PinTo1(PORTWxOUT_1, PINxOUT_1);
+								job_buzzer.mode = BUZZERMODE_TACTSW;
+								job_buzzer.f.job = 1;
 							}
 						}
 					}
@@ -484,6 +485,9 @@ int main(void)
 								//
 								PinTo1(PORTWxOUT_2, PINxOUT_2);
 								PinTo0(PORTWxOUT_1, PINxOUT_1);
+
+								job_buzzer.mode = BUZZERMODE_TACTSW;
+								job_buzzer.f.job = 1;
 							}
 						}
 
