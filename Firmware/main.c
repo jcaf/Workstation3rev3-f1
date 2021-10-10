@@ -289,7 +289,7 @@ int main(void)
 	__delay_ms(RELAY_TIMESWITCHING);
 	PinTo1(PORTWxOUT_Y, PINxOUT_Y);
 
-	keyP2.f.lock = 1;
+	//keyP2.f.lock = 1;
 
 	/* Inicia con T1 activado*/
 	PinTo0(PORTWxOUT_2, PINxOUT_2);
