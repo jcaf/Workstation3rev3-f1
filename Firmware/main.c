@@ -326,11 +326,18 @@ int main(void)
 					
 					if (ikb_key_is_ready2read(KB_LYOUT_KEY_B))
 					{
-						/*Ahora B es T1*/
-						P1_T3 = 1000;//2seg
-						//
-						PinTo0(PORTWxOUT_2, PINxOUT_2);
-						PinTo1(PORTWxOUT_1, PINxOUT_1);
+						if (keyB.f.enable)
+						{
+							if (keyB.f.lock == 0)
+							{
+
+							/*Ahora B es T1*/
+							P1_T3 = 1000;//2seg
+							//
+							PinTo0(PORTWxOUT_2, PINxOUT_2);
+							PinTo1(PORTWxOUT_1, PINxOUT_1);
+							}
+						}
 					}
 
 
@@ -469,10 +476,16 @@ int main(void)
 					/* P2 es T2  -> fija K=2seg... OUT2 =1*/
 					if (ikb_key_is_ready2read(KB_LYOUT_KEY_P2))
 					{
-						P1_T3 = 2000;//2seg
-						//
-						PinTo1(PORTWxOUT_2, PINxOUT_2);
-						PinTo0(PORTWxOUT_1, PINxOUT_1);
+						if (keyP2.f.enable)
+						{
+							if (!keyP2.f.lock)
+							{
+								P1_T3 = 2000;//2seg
+								//
+								PinTo1(PORTWxOUT_2, PINxOUT_2);
+								PinTo0(PORTWxOUT_1, PINxOUT_1);
+							}
+						}
 
 					}
 
