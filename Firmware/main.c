@@ -292,6 +292,9 @@ int main(void)
 
 	keyP2.f.lock = 1;
 
+	/* Inicia con T1 activado*/
+	PinTo0(PORTWxOUT_2, PINxOUT_2);
+	PinTo1(PORTWxOUT_1, PINxOUT_1);
 	while (1)
 	{
 		if (isr_flag.f1ms)
@@ -340,7 +343,7 @@ int main(void)
 
 							C_2funct = !C_2funct;
 
-							if (C_2funct != 0)
+							if (C_2funct == 0)
 							{
 								/* hace lo que hacia B*/
 								if (keyB.f.enable)
