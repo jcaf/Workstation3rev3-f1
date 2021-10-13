@@ -331,7 +331,7 @@ int main(void)
 							{
 								/*Ahora B es T1*/
 								keyB.f.lock = 1;//B locked
-								keyC.f.lock = 0;//C unlock
+								keyP2.f.lock = 0;//C unlock
 
 								P1_T3 = 1000;//2seg
 								//
@@ -480,7 +480,7 @@ int main(void)
 						{
 							if (!keyP2.f.lock)
 							{
-								keyC.f.lock = 1;//B locked
+								keyP2.f.lock = 1;//B locked
 								keyB.f.lock = 0;//C unlock
 
 								P1_T3 = 2000;//2seg
