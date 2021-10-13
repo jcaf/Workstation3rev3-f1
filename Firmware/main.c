@@ -330,6 +330,9 @@ int main(void)
 							if (keyB.f.lock == 0)
 							{
 								/*Ahora B es T1*/
+								keyB.f.lock = 1;//B locked
+								keyC.f.lock = 0;//C unlock
+
 								P1_T3 = 1000;//2seg
 								//
 								PinTo0(PORTWxOUT_2, PINxOUT_2);
@@ -427,15 +430,14 @@ int main(void)
 							if (P1_2funct != 0)
 							{
 								//secuencia de P1
-								if (keyP1.f.enable)
+								if (1)//(keyP1.f.enable)
 								{
 									if (1)//(!keyP1.f.lock)
 									{
-										// keyP1.f.lock = 1;
-										// keyP2.f.lock = 1;
-
 										keyA.f.enable = keyB.f.enable = keyC.f.enable = 0;//Disable A,B,C
 										keyX3.f.enable = 0;
+
+										keyP2.f.enable  = 0;
 										//
 										keyP1.f.job = 1;
 
@@ -452,13 +454,10 @@ int main(void)
 							else
 							{
 								//secuencia de P2
-								if (keyP2.f.enable)
+								if (1)// (keyP2.f.enable)
 								{
 									if (1)//(!keyP2.f.lock)
 									{
-										// keyP1.f.lock = 1;
-										// keyP2.f.lock = 1;
-										//
 										keyA.f.enable = keyB.f.enable = keyC.f.enable = 0;//Disable A,B,C
 										keyX3.f.enable = 0;
 										//
@@ -481,6 +480,9 @@ int main(void)
 						{
 							if (!keyP2.f.lock)
 							{
+								keyC.f.lock = 1;//B locked
+								keyB.f.lock = 0;//C unlock
+
 								P1_T3 = 2000;//2seg
 								//
 								PinTo1(PORTWxOUT_2, PINxOUT_2);
@@ -674,6 +676,7 @@ int main(void)
 					//
 					keyA.f.enable = keyB.f.enable = keyC.f.enable = 1;//Enable A,B,C
 					keyX3.f.enable = 1;
+					keyP2.f.enable = 1;
 				}
 			}
 
