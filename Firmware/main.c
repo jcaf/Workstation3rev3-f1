@@ -458,6 +458,9 @@ int main(void)
 								{
 									if (1)//(!keyP2.f.lock)
 									{
+										PinTo0(PORTWxLED2, PINxLED2);//add
+
+
 										keyA.f.enable = keyB.f.enable = keyC.f.enable = 0;//Disable A,B,C
 										keyX3.f.enable = 0;
 										//
@@ -662,7 +665,7 @@ int main(void)
 					keyP1.f.lock = 0;//unlock P1
 					//keyP2.f.lock = 0;
 					PinTo0(PORTWxBUZZER, PINxBUZZER);
-					PinTo0(PORTWxLED2, PINxLED2);//add
+					//PinTo0(PORTWxLED2, PINxLED2);//add
 					job_buzzer = job_reset;
 				}
 			}
