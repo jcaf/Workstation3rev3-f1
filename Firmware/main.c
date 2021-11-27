@@ -589,6 +589,7 @@ int main(void)
 				{
 					PinTo1(PORTWxOUT_4, PINxOUT_4);
 
+					PinTo1(PORTWxOUT_3, PINxOUT_3);
 					//
 					keyX3.counter = 0x00;
 					keyX3.sm0++;
@@ -600,7 +601,7 @@ int main(void)
 						if (++keyX3.counter >= RELAY_TIMESWITCHING)//	40)//40ms
 						{
 							keyX3.counter = 0x00;
-							PinTo1(PORTWxOUT_3, PINxOUT_3);
+
 							//
 							keyX3.sm0++;
 						}
