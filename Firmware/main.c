@@ -1,5 +1,7 @@
 /* ATmega328P .. OK! v3
  *
+ * 28 set 2022 esta es la version final
+ *
  * Comandos para sincronizar localmente desde el respositorio
  * git stash (1 vez)
  * git pull origin master
